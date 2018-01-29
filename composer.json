@@ -9,7 +9,7 @@
 	"autoload":{
 		"psr-4":{
 			"App\\":"App/",
-			"SON\\":"vendor/SON"
+			"SON\\":"vendor/carsio/carsiovel-framework/SON"
 		}
 	},
 
