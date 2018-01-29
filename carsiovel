@@ -1,0 +1,33 @@
+#!/usr/bin/php
+<?php
+// var_dump($argv);
+require_once __DIR__.'/vendor/SON/carsiovel/Template.php';
+
+
+if ( ( ($argv[1] == "new" &&  $argv[2] == "controller") ||
+      ($argv[1] == "n" &&  $argv[2] == "c") ) &&
+      isset($argv[3])
+    ) {
+  $className = $argv[3];
+  if (!file_exists("App/Controller/$className.php")) {
+    $file = fopen("App/Controller/$className.php", "w");
+    fwrite($file, getController($className));
+    fclose($file);
+  }else{
+    echo "Arquivo já existe";
+  }
+}
+
+if ( ( ($argv[1] == "new" &&  $argv[2] == "model") ||
+      ($argv[1] == "n" &&  $argv[2] == "m") ) &&
+      isset($argv[3])
+    ) {
+  $className = $argv[3];
+  if (!file_exists("App/Model/$className.php")) {
+    $file = fopen("App/Model/$className.php", "w");
+    fwrite($file, getModel($className));
+    fclose($file);
+  }else{
+    echo "Arquivo já existe";
+  }
+}
